@@ -3,6 +3,7 @@
 ## By Sourish Das
 ### Chennai Mathematical Institute
 
+<img src="./images/air-passengers.jpeg" alt="drawing" width="700" height="250"/>
 
 #### Introduction
 
@@ -10,7 +11,7 @@ In this case study, we will present the time-series analysis of the `AirPassenge
 
 #### Data Set
 
-First, we will look at the dataset itself as it is. The dataset is stored as `Time-Series` object. 
+First, we will look at the dataset itself as it is. The dataset is stored as `Time-Series` object and we present it as simple 
 
 ```R
 > str(AirPassengers)
@@ -30,12 +31,23 @@ First, we will look at the dataset itself as it is. The dataset is stored as `Ti
 1958 340 318 362 348 363 435 491 505 404 359 310 337
 1959 360 342 406 396 420 472 548 559 463 407 362 405
 1960 417 391 419 461 472 535 622 606 508 461 390 432
+
+> plot(AirPassengers,lwd=2)
 ```
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig1.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 1: Simple time series plot of AirPassengers data</p>
+</figure>
+
+
+
 In the following we present a simple time series modeling using the **statistical linear model** framework.
 
 #### Modeling Approach
 
-There are two issues to consider. First, what model fits the data? Then the second issue is how to test if the model is doing a reasonable job or not.
+There are two issues to consider. First, what model fits the data? Then the second issue is how to test if the model is doing a reasonable job or not. We will fit several models. However, we will compare each model on the same test dataset and train them with same dataset. So we split the dataset into train and test. Out of 12 years of data, we consider first eight years of the data as training data and latest four years of the data as test data.
 
 
 $$
