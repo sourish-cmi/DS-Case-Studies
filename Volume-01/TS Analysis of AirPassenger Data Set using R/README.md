@@ -52,8 +52,7 @@ In the following we present a simple time series modeling using the **statistica
 There are two issues to consider. First, what model fits the data? Then the second issue is how to test if the model is doing a reasonable job or not. We will fit several models. However, we will compare each model on the same test dataset and train them with same dataset. So we split the dataset into train and test. Out of 12 years of data, we consider first eight years of the data as training data and latest four years of the data as test data. So first we split the data accordingly using the following `R` code.
 
 ```R
-> AirP_data = data.frame(cbind(time = time(AirPassengers)
-+                             ,AirPassengers=AirPassengers))
+> AirP_data = data.frame(cbind(time = time(AirPassengers),AirPassengers=AirPassengers))
 > n=nrow(AirP_data)
 > n ## number all data points 
 [1] 144
@@ -62,8 +61,7 @@ There are two issues to consider. First, what model fits the data? Then the seco
 [1] 96
 
 ## Create a column marking first 8 years of data as tain and last four years of data as test
-> AirP_data$train_test=c(rep('train',length.out=m)
-+                   ,rep('test',length.out=(n-m)))
+> AirP_data$train_test=c(rep('train',length.out=m), rep('test',length.out=(n-m)))
 
 
 > head(AirP_data)
@@ -88,18 +86,14 @@ There are two issues to consider. First, what model fits the data? Then the seco
 > AirP_data_train = AirP_data[AirP_data$train_test=='train',]
 > AirP_data_test = AirP_data[AirP_data$train_test=='test',]
 
-plot(NULL,xlim=c(min(AirP_data$time)
-                  ,max(AirP_data$time))
-     ,ylim=c(min(AirP_data$AirPassengers)
-             ,max(AirP_data$AirPassengers))
-     ,xlab = ''
-     ,ylab = 'AirPassengers')
+plot(NULL,xlim=c(min(AirP_data$time),max(AirP_data$time))
+         ,ylim=c(min(AirP_data$AirPassengers),max(AirP_data$AirPassengers))
+         ,xlab = ''
+         ,ylab = 'AirPassengers')
 grid(col='skyblue',lty=1)
-lines(AirP_data_train$time,AirP_data_train$AirPassengers
-     ,lwd=2
-     ,col='green')
-lines(AirP_data_test$time
-      ,AirP_data_test$AirPassengers
+lines(AirP_data_train$time, AirP_data_train$AirPassengers
+     ,lwd=2,col='green')
+lines(AirP_data_test$time, AirP_data_test$AirPassengers
       ,col='orange',lwd=2)
 abline(v=1957,col='blue',lty=2,lwd=2)
 ```
