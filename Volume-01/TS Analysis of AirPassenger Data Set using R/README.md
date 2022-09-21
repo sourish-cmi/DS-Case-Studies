@@ -1,15 +1,17 @@
 # Time Series Analysis of `AirPassengers` Dataset using `R`
 
 ## By Sourish Das
-### Chennai Mathematical Institute
+#### Chennai Mathematical Institute
 
-<img src="./images/air-passengers.jpeg" alt="drawing" width="700" height="250"/>
+<p align = "center">
+<img src="./images/air-passengers.jpeg" alt="drawing" width="800" height="275"/>
+</p>
 
-#### Introduction
+### Introduction
 
 In this case study, we will present the time-series analysis of the `AirPassengers` Dataset using `R`. The data is classic Box & Jenkins (1976) airline data. The dataset consists of univariate time-series data about the number of passengers flying per month from 1949 to 1960 in the US. This time-series dataset addresses the issue of trend, seasonality, and exponential growth. Here we will present how we can model such time series data step-by-step. Note that the dataset is available in the `datasets` package of `R`.
 
-#### Data Set
+### Data Set
 
 First, we will look at the dataset itself as it is. The dataset is stored as `Time-Series` object and we present it as simple 
 
@@ -45,9 +47,62 @@ First, we will look at the dataset itself as it is. The dataset is stored as `Ti
 
 In the following we present a simple time series modeling using the **statistical linear model** framework.
 
-#### Modeling Approach
+### Modeling Approach
 
-There are two issues to consider. First, what model fits the data? Then the second issue is how to test if the model is doing a reasonable job or not. We will fit several models. However, we will compare each model on the same test dataset and train them with same dataset. So we split the dataset into train and test. Out of 12 years of data, we consider first eight years of the data as training data and latest four years of the data as test data.
+There are two issues to consider. First, what model fits the data? Then the second issue is how to test if the model is doing a reasonable job or not. We will fit several models. However, we will compare each model on the same test dataset and train them with same dataset. So we split the dataset into train and test. Out of 12 years of data, we consider first eight years of the data as training data and latest four years of the data as test data. So first we split the data accordingly using the following `R` code.
+
+```R
+> AirP_data = data.frame(cbind(time = time(AirPassengers)
++                             ,AirPassengers=AirPassengers))
+> n=nrow(AirP_data)
+> n ## number all data points 
+[1] 144
+> m=12*8 ## number of data points for taining data
+> m
+[1] 96
+
+## Create a column marking first 8 years of data as tain and last four years of data as test
+> AirP_data$train_test=c(rep('train',length.out=m)
++                   ,rep('test',length.out=(n-m)))
+
+
+> head(AirP_data)
+      time AirPassengers train_test
+1 1949.000           112      train
+2 1949.083           118      train
+3 1949.167           132      train
+4 1949.250           129      train
+5 1949.333           121      train
+6 1949.417           135      train
+
+> tail(AirP_data)
+        time AirPassengers train_test
+139 1960.500           622       test
+140 1960.583           606       test
+141 1960.667           508       test
+142 1960.750           461       test
+143 1960.833           390       test
+144 1960.917           432       test
+
+## split the data into train and test
+> AirP_data_train = AirP_data[AirP_data$train_test=='train',]
+> AirP_data_test = AirP_data[AirP_data$train_test=='test',]
+
+plot(NULL,xlim=c(min(AirP_data$time)
+                  ,max(AirP_data$time))
+     ,ylim=c(min(AirP_data$AirPassengers)
+             ,max(AirP_data$AirPassengers))
+     ,xlab = ''
+     ,ylab = 'AirPassengers')
+grid(col='skyblue',lty=1)
+lines(AirP_data_train$time,AirP_data_train$AirPassengers
+     ,lwd=2
+     ,col='green')
+lines(AirP_data_test$time
+      ,AirP_data_test$AirPassengers
+      ,col='orange',lwd=2)
+abline(v=1957,col='blue',lty=2,lwd=2)
+```
 
 
 $$
