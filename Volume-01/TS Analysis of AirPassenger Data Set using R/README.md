@@ -6,12 +6,16 @@
 
 #### Introduction
 
-Number of passengers flying per month from 1949 to 1960 in US. The classic Box & Jenkins (1976) airline data.
-
+In this case study, we will present the time-series analysis of the `AirPassengers` Dataset using `R`. The data is classic Box & Jenkins (1976) airline data. The dataset consists of univariate time-series data about the number of passengers flying per month from 1949 to 1960 in the US. This time-series dataset addresses the issue of trend, seasonality, and exponential growth. Here we will present how we can model such time series data step-by-step. Note that the dataset is available in the `datasets` package of `R`.
 
 #### Data Set
 
+First, we will look at the dataset itself as it is. The dataset is stored as `Time-Series` object. 
+
 ```R
+> str(AirPassengers)
+ Time-Series [1:144] from 1949 to 1961: 112 118 132 129 121 135 148 148 136 119 ...
+
 > AirPassengers
      Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec
 1949 112 118 132 129 121 135 148 148 136 119 104 118
@@ -27,7 +31,16 @@ Number of passengers flying per month from 1949 to 1960 in US. The classic Box &
 1959 360 342 406 396 420 472 548 559 463 407 362 405
 1960 417 391 419 461 472 535 622 606 508 461 390 432
 ```
+In the following we present a simple time series modeling using the **statistical linear model** framework.
 
+#### Modeling Approach
+
+There are two issues to consider. First, what model fits the data? Then the second issue is how to test if the model is doing a reasonable job or not.
+
+
+$$
+y(t) = \alpha + \beta t + \varepsilon(t)
+$$
 
 ## Referances:
 
