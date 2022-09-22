@@ -86,18 +86,24 @@ There are two issues to consider. First, what model fits the data? Then the seco
 > AirP_data_train = AirP_data[AirP_data$train_test=='train',]
 > AirP_data_test = AirP_data[AirP_data$train_test=='test',]
 
-plot(NULL,xlim=c(min(AirP_data$time),max(AirP_data$time))
+> plot(NULL,xlim=c(min(AirP_data$time),max(AirP_data$time))
          ,ylim=c(min(AirP_data$AirPassengers),max(AirP_data$AirPassengers))
          ,xlab = ''
          ,ylab = 'AirPassengers')
-grid(col='skyblue',lty=1)
-lines(AirP_data_train$time, AirP_data_train$AirPassengers
+> grid(col='skyblue',lty=1)
+> lines(AirP_data_train$time, AirP_data_train$AirPassengers
      ,lwd=2,col='green')
-lines(AirP_data_test$time, AirP_data_test$AirPassengers
+> lines(AirP_data_test$time, AirP_data_test$AirPassengers
       ,col='orange',lwd=2)
-abline(v=1957,col='blue',lty=2,lwd=2)
+> abline(v=1957,col='blue',lty=2,lwd=2)
 ```
 
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig2.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 2: From 1949 to 1956 (marked as green) used as training data and from 1957 to 1960 (marked as orange) is used for testing the model predictions.</p>
+</figure>
 
 $$
 y(t) = \alpha + \beta t + \varepsilon(t)
