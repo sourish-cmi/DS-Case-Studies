@@ -105,9 +105,72 @@ There are two issues to consider. First, what model fits the data? Then the seco
 <p align = "center">Figure 2: From 1949 to 1956 (marked as green) used as training data and from 1957 to 1960 (marked as orange) is used for testing the model predictions.</p>
 </figure>
 
+**Model 1**: First model we try the simple linear regression over time. That is
+
 $$
-y(t) = \alpha + \beta t + \varepsilon(t)
+y(t) = \alpha + \beta t + \varepsilon(t),
 $$
+
+where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` in `R` to fit the model.
+
+```R
+> fit1 = lm(AirPassengers ~ time
++           ,data = AirP_data_train)
+> summary(fit1)
+
+Call:
+lm(formula = AirPassengers ~ time, data = AirP_data_train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-63.239 -18.529  -2.838  17.138 100.066 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -54501.445   2663.697  -20.46   <2e-16 ***
+time            28.017      1.364   20.54   <2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 30.86 on 94 degrees of freedom
+Multiple R-squared:  0.8178,	Adjusted R-squared:  0.8159 
+F-statistic: 421.9 on 1 and 94 DF,  p-value: < 2.2e-16
+```
+
+As we fit the **Model 1** with `lm`, the `summary` shows that 81.78\% of variability of training data is getting explained by the simple straight line which is explaining the trend in the data. However we should see its performance in test data.
+
+
+```R
+## Predict in test data
+> AirP_data_test$pred = predict(fit1,newdata = AirP_data_test)
+> lines(AirP_data_test$time,AirP_data_test$pred,col='red',lty=1,lwd=2)
+> lines(AirP_data_train$time,fit1$fitted.values,col='blue',lty=1,lwd=2)
+
+## Check the preformance of the prediction in test data.
+## Out sample R-square
+> cor(AirP_data_test$AirPassengers,AirP_data_test$pred)^2
+[1] 0.3103215
+
+## In sample R-square
+> cor(AirP_data_train$AirPassengers,fit1$fitted.values)^2
+[1] 0.8178068
+
+## Out sample RMSE
+> sqrt(mean((AirP_data_test$AirPassengers-AirP_data_test$pred)^2))
+[1] 72.6894
+
+## In sample RMSE
+> sqrt(mean((AirP_data_train$AirPassengers-fit1$fitted.values)^2))
+[1] 30.53734
+```
+We combine the prediction performance in train and test data in the **Table 1**.
+
+Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out-sample)
+-------- | ----------------- | -------------------|------------------|------------------
+Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
+
+<p align = "left"><b>Table 1</b>: Performance of Model 1. We consider R-square and RMSE for both train and test data. Though Model 1 is perhaps the simplest. Note that the model is overfitting from a machine learning perspective as performance is inferior in the test data.</p>
+
 
 ## Referances:
 
