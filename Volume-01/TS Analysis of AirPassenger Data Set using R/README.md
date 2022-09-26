@@ -173,7 +173,7 @@ Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
 
 <p align = "left"><b>Table 1</b>: Performance of Model 1. We consider R-square and RMSE for both train and test data. Though Model 1 is perhaps the simplest. Is the model overfitting? Or underfitting?</p>
 
-In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps the simplest, the model is overfitting, as performance is inferior in the test data. Generally, this does not happen if train and test data are similar. However, the train and test data here are markedly different! We considered R-square and RMSE for both train and test data. Figure 3 visually represents the performance of **Model 1**. Clearly, the peak season in summer, particularly in the month of July, is growing exponentially. The **Model 1** fails to capture the highs of summer.
+In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps the simplest, the model is overfitting, as performance is inferior in the test data. Generally, this does not happen if train and test data are similar. However, the train and test data here are markedly different! We considered R-square and RMSE for both train and test data. Figure 3 visually represents the performance of **Model 1**. Clearly, the variability in the test dataset is higher due to the peak season in summer, particularly in the month of July. The **Model 1** fails to capture the highs of summer. Next we introduce the quadratic trend.
 
 <figure>
 <p align = "center">
@@ -182,6 +182,13 @@ In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps t
 <p align = "center">Figure 3: Fitted simple line over train data, described in Model 1.</p>
 </figure>
 
+**Model 2**: We try consider the quadratice regression over time. That is
+
+$$
+y(t) = \alpha + \beta t + \gamma t^2 +\varepsilon(t),
+$$
+
+where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` in `R` to fit the model.
 
 
 ## Referances:
