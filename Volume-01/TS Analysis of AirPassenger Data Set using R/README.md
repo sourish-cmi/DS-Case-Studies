@@ -165,7 +165,7 @@ As we fit the **Model 1** with `lm`, the `summary` shows that 81.78\% of variabi
 > sqrt(mean((AirP_data_train$AirPassengers-fit1$fitted.values)^2))
 [1] 30.53734
 ```
-We combine the prediction performance in train and test data in the **Table 1**.
+We combine the prediction performance of **Model 1**, in train and test data, in the **Table 1**.
 
 Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out-sample)
 -------- | ----------------- | -------------------|------------------|------------------
@@ -220,9 +220,17 @@ lines(AirP_data_train$time,fit2$fitted.values,col='blue',lty=1,lwd=2)
 <p align = "center">
 <img src="./images/Rplot_Fig4.jpeg" alt="drawing" width="600" height="450"/>
 </p>
-<p align = "center">Figure 4: Fitted quadratic regression over train data, described in Model 2.</p>
+<p align = "center">Figure 4: Fitted quadratic regression (blue) over train data, described in Model 2. The red part of the quadratic curve is the prediction over test data.</p>
 </figure>
 
+We combine the prediction performance of **Model 2**, in train and test data, in the **Table 2**.
+
+Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out-sample)
+-------- | ----------------- | -------------------|------------------|------------------
+Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
+Model 2. | 0.8289            | 0.3128.            | 29.59.           | 67.99
+
+We can see that both in-sample and out-sample R-square increases marginally for a quadratic trend compare to a linear trend. Also, both in-sample and out-sample RMSE decreases for quadratic trend compare to a linear trend.
 
 
 ## Referances:
