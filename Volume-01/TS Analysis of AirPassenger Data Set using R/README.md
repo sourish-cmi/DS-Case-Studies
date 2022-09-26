@@ -173,9 +173,7 @@ Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
 
 <p align = "left"><b>Table 1</b>: Performance of Model 1. We consider R-square and RMSE for both train and test data. Though Model 1 is perhaps the simplest. Is the model overfitting? Or underfitting?</p>
 
-In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps the simplest, the model is overfitting, as performance is inferior in the test data. Generally, this does not happen if train and test data are similar. However, the train and test data here are markedly different! We considered R-square and RMSE for both train and test data.
-
-
+In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps the simplest, the model is overfitting, as performance is inferior in the test data. Generally, this does not happen if train and test data are similar. However, the train and test data here are markedly different! We considered R-square and RMSE for both train and test data. Figure 3 visually represents the performance of **Model 1**. Clearly, the peak season in summer, particularly in the month of July, is growing exponentially. The **Model 1** fails to capture the highs of summer.
 
 <figure>
 <p align = "center">
