@@ -216,6 +216,15 @@ lines(AirP_data_test$time,AirP_data_test$pred,col='red',lty=1,lwd=2)
 lines(AirP_data_train$time,fit2$fitted.values,col='blue',lty=1,lwd=2)
 ```
 
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig4.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 4: Fitted quadratic regression over train data, described in Model 2.</p>
+</figure>
+
+
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
