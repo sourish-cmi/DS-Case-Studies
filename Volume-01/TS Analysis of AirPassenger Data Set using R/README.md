@@ -3,6 +3,8 @@
 ## By Sourish Das
 #### Chennai Mathematical Institute
 
+*Sourish is Associate Professor at Chennai Mathematical Institute (CMI). He did his PhD from the University of Connecticut and his postdoc at Duke University. Then he worked in SAS for three years before joining CMI. For the last ten years, he has been faculty at CMI.*
+
 <p align = "center">
 <img src="./images/air-passengers.jpeg" alt="drawing" width="800" height="275"/>
 </p>
@@ -169,8 +171,9 @@ Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out
 -------- | ----------------- | -------------------|------------------|------------------
 Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
 
-<p align = "left"><b>Table 1</b>: Performance of Model 1. We consider R-square and RMSE for both train and test data. Though Model 1 is perhaps the simplest. Note that the model is overfitting from a machine learning perspective as performance is inferior in the test data.</p>
+<p align = "left"><b>Table 1</b>: Performance of Model 1. We consider R-square and RMSE for both train and test data. Though Model 1 is perhaps the simplest. Is the model overfitting? Or underfitting?</p>
 
+In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps the simplest, the model is overfitting, as performance is inferior in the test data. Generally, this does not happen if train and test data are similar. However, the train and test data here are markedly different! We considered R-square and RMSE for both train and test data.
 
 ## Referances:
 
