@@ -182,7 +182,7 @@ In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps t
 <p align = "center">Figure 3: Fitted simple line over train data, described in Model 1.</p>
 </figure>
 
-**Model 2**: We try consider the quadratice regression over time. That is
+**Model 2**: We consider the quadratice regression over time. That is
 
 $$
 y(t) = \alpha + \beta t + \gamma t^2 +\varepsilon(t),
@@ -190,6 +190,31 @@ $$
 
 where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` in `R` to fit the model.
 
+```R
+> fit2 = lm(AirPassengers ~ time+I(time^2)
++           ,data = AirP_data_train)
+> summary(fit2)
+
+Call:
+lm(formula = AirPassengers ~ time + I(time^2), data = AirP_data_train)
+
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)  
+(Intercept)  5.978e+06  2.454e+06   2.436   0.0167 *
+time        -6.150e+03  2.513e+03  -2.447   0.0163 *
+I(time^2)    1.582e+00  6.434e-01   2.458   0.0158 *
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 30.06 on 93 degrees of freedom
+Multiple R-squared:  0.8289,	Adjusted R-squared:  0.8252 
+F-statistic: 225.3 on 2 and 93 DF,  p-value: < 2.2e-16
+
+AirP_data_test$pred = predict(fit2,newdata = AirP_data_test)
+lines(AirP_data_test$time,AirP_data_test$pred,col='red',lty=1,lwd=2)
+lines(AirP_data_train$time,fit2$fitted.values,col='blue',lty=1,lwd=2)
+```
 
 ## Referances:
 
