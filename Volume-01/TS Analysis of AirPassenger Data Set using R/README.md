@@ -175,6 +175,17 @@ Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
 
 In Table 1, we presented the performance of Model 1. Though Model 1 is perhaps the simplest, the model is overfitting, as performance is inferior in the test data. Generally, this does not happen if train and test data are similar. However, the train and test data here are markedly different! We considered R-square and RMSE for both train and test data.
 
+
+
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig3.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 3: Fitted simple line over train data, described in Model 1.</p>
+</figure>
+
+
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
