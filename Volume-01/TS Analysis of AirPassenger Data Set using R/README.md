@@ -229,8 +229,10 @@ Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out
 -------- | ----------------- | -------------------|------------------|------------------
 Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
 Model 2. | 0.8289            | 0.3128.            | 29.59.           | 67.99
+<p align = "left"><b>Table 2</b>: Performance of Model 1-2. Both in-sample and out-sample R-square increases marginally for a quadratic trend compare to a linear trend. The RMSE decreases for quadratic trend compare to a linear trend.</p>
 
-We can see that both in-sample and out-sample R-square increases marginally for a quadratic trend compare to a linear trend. Also, both in-sample and out-sample RMSE decreases for quadratic trend compare to a linear trend.
+
+We can see that both in-sample and out-sample R-square increases marginally for a quadratic trend compare to a linear trend. On the otherhand, both in-sample and out-sample RMSE decreases for quadratic trend compare to a linear trend. The visualisation presents a significant seasonality in the data. We try to capture the seasonality with Fourier transforms.
 
 
 ## Referances:
