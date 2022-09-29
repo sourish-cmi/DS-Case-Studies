@@ -239,6 +239,7 @@ We can see that both in-sample and out-sample R-square increases marginally for 
 $$
 y(t) = \alpha + \beta_1 t + \beta_2 t^2 + \gamma_1 \sin(\omega t) + \delta_1 \cos(\omega t) + \varepsilon(t),
 $$
+
 where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` in `R` to fit the model.
 
 
