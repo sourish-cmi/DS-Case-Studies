@@ -242,7 +242,51 @@ $$
 
 where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` in `R` to fit the model.
 
+```R
+> omega = 2*pi
+> AirP_data$S1 = sin(omega*AirP_data$time)
+> AirP_data$C1 = cos(omega*AirP_data$time)
 
+
+> head(AirP_data)
+      time AirPassengers train_test            S1            C1
+1 1949.000           112      train -4.134185e-13  1.000000e+00
+2 1949.083           118      train  5.000000e-01  8.660254e-01
+3 1949.167           132      train  8.660254e-01  5.000000e-01
+4 1949.250           129      train  1.000000e+00  1.157773e-12
+5 1949.333           121      train  8.660254e-01 -5.000000e-01
+6 1949.417           135      train  5.000000e-01 -8.660254e-01
+
+
+AirP_data_train = AirP_data[AirP_data$train_test=='train',]
+AirP_data_test = AirP_data[AirP_data$train_test=='test',]
+
+
+> fit3=lm(AirPassengers ~ time+I(time^2)+S1+C1
++              ,data = AirP_data_train)
+> summary(fit3)
+Call:
+lm(formula = AirPassengers ~ time + I(time^2) + S1 + C1, data = AirP_data_train)
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.237e+06  1.678e+06   3.716 0.000349 ***
+time        -6.415e+03  1.719e+03  -3.733 0.000330 ***
+I(time^2)    1.650e+00  4.400e-01   3.749 0.000312 ***
+S1           6.851e+00  2.981e+00   2.298 0.023838 *  
+C1          -3.005e+01  2.969e+00 -10.124  < 2e-16 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 20.56 on 91 degrees of freedom
+Multiple R-squared:  0.9217,	Adjusted R-squared:  0.9183 
+F-statistic: 267.9 on 4 and 91 DF,  p-value: < 2.2e-16
+
+> AirP_data_test$pred = predict(fit3,newdata = AirP_data_test)
+> lines(AirP_data_train$time,fit3$fitted.values,col='blue',lty=1,lwd=2)
+> lines(AirP_data_test$time,AirP_data_test$pred,col='red',lty=1,lwd=2)
+
+```
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
