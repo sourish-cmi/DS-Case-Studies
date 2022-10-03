@@ -292,7 +292,7 @@ F-statistic: 267.9 on 4 and 91 DF,  p-value: < 2.2e-16
 <p align = "center">
 <img src="./images/Rplot_Fig5.jpeg" alt="drawing" width="600" height="450"/>
 </p>
-<p align = "center">Figure 5: Fitted the *model 3*, (blue) over train data. The red part of the curve is the prediction over test data.</p>
+<p align = "center">Figure 5: Fitted the <em>model 3</em>, (blue) over train data. The red part of the curve is the prediction over test data.</p>
 </figure>
 
 
