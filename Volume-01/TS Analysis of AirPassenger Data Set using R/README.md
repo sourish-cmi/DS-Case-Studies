@@ -295,6 +295,14 @@ F-statistic: 267.9 on 4 and 91 DF,  p-value: < 2.2e-16
 <p align = "center">Figure 5: Fitted the <em>model 3</em>, (blue) over train data. The red part of the curve is the prediction over test data.</p>
 </figure>
 
+We combine the prediction performance of **Model 1,2 & 3**, in train and test data, in the **Table 3**.
+
+Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out-sample)
+-------- | ----------------- | -------------------|------------------|------------------
+Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
+Model 2  | 0.8289            | 0.3128             | 29.59            | 67.99
+Model 3  | 0.9217            | 0.5968             | 20.02            | 53.57 
+<p align = "left"><b>Table 3</b>: Performance of Model 1-3. Both in-sample and out-sample R-square increases drastically for a Model 3 compare to a Model 1-2. The RMSE decreases for Model 3 compare to Model 1-2.</p>
 
 
 ## Referances:
