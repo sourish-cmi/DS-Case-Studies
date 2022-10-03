@@ -287,6 +287,16 @@ F-statistic: 267.9 on 4 and 91 DF,  p-value: < 2.2e-16
 > lines(AirP_data_test$time,AirP_data_test$pred,col='red',lty=1,lwd=2)
 
 ```
+
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig5.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 5: Fitted the *model 3*, (blue) over train data. The red part of the curve is the prediction over test data.</p>
+</figure>
+
+
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
