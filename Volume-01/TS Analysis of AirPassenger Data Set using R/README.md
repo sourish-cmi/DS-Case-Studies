@@ -304,7 +304,16 @@ Model 2  | 0.8289            | 0.3128             | 29.59            | 67.99
 Model 3  | 0.9217            | 0.5968             | 20.02            | 53.57 
 <p align = "left"><b>Table 3</b>: Performance of Model 1-3. Both in-sample and out-sample R-square increases drastically for a Model 3 compare to a Model 1-2. The RMSE decreases for Model 3 compare to Model 1-2.</p>
 
-From the Figure 5, and the Table 3, we see that the model 3 improves the model predictability, as we add Fourier transform feature in the model. But we can add higher order Fourier transforms to the model as well. Hence we decides to add higher order Fourier transforms. But not ncessarily all the transformed feature will be useful. So we can run the stepwise variable selection using the `step` function in `R`.
+From the Figure 5, and the Table 3, we see that the model 3 improves the model predictability, as we add Fourier transform feature in the model. But we can add higher order Fourier transforms to the model as well. Hence we decides to add higher order Fourier transforms. But not ncessarily all the transformed feature will be useful. So we can run the stepwise variable selection using the `step` function in `R`. We consider the next model as follows.
+
+**Model 4**: We consider the higher order Fourier trandorm for seasonality along with a quadratice trend over time. That is
+
+$$
+y(t) = \alpha + \beta_1 t + \beta_2 t^2 + \sum_{i=1}^{5}\gamma_i \sin(i\omega t) + \delta_i \cos(i\omega t) + \varepsilon(t),
+$$
+
+where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` and `step` in `R` to fit the model.
+
 
 ## Referances:
 
