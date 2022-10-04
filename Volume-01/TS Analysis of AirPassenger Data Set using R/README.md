@@ -314,7 +314,78 @@ $$
 
 where $\varepsilon(t)\sim N(0,\sigma^2)$, and $\omega=\frac{2\pi}{f}$, $f=1$. We used `lm` and `step` in `R` to fit the model.
 
+```R
 
+AirP_data$S2 = sin(2*omega*AirP_data$time)
+AirP_data$C2 = cos(2*omega*AirP_data$time)
+
+
+AirP_data$S3 = sin(3*omega*AirP_data$time)
+AirP_data$C3 = cos(3*omega*AirP_data$time)
+
+AirP_data$S4 = sin(4*omega*AirP_data$time)
+AirP_data$C4 = cos(4*omega*AirP_data$time)
+
+AirP_data$S5 = sin(5*omega*AirP_data$time)
+AirP_data$C5 = cos(5*omega*AirP_data$time)
+
+AirP_data_train = AirP_data[AirP_data$train_test=='train',]
+AirP_data_test = AirP_data[AirP_data$train_test=='test',]
+
+fit4=step(lm(AirPassengers ~ time+I(time^2)+S1+C1+S2+C2+S3+C3+S4+C4+S5+C5
+         ,data = AirP_data_train),trace=0)
+summary(fit4)
+
+
+Call:
+lm(formula = AirPassengers ~ time + I(time^2) + S1 + C1 + S2 + 
+    C2 + S3 + S4 + S5, data = AirP_data_train)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-32.553 -11.034  -1.005   8.733  44.985 
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept)  6.222e+06  1.185e+06   5.252 1.08e-06 ***
+time        -6.400e+03  1.213e+03  -5.275 9.79e-07 ***
+I(time^2)    1.646e+00  3.106e-01   5.298 8.90e-07 ***
+S1           6.912e+00  2.104e+00   3.285  0.00148 ** 
+C1          -3.004e+01  2.096e+00 -14.333  < 2e-16 ***
+S2           1.322e+01  2.097e+00   6.303 1.21e-08 ***
+C2           1.261e+01  2.095e+00   6.016 4.24e-08 ***
+S3          -5.786e+00  2.095e+00  -2.761  0.00704 ** 
+S4          -6.468e+00  2.095e+00  -3.087  0.00272 ** 
+S5          -3.932e+00  2.095e+00  -1.877  0.06390 .  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 14.51 on 86 degrees of freedom
+Multiple R-squared:  0.9631,	Adjusted R-squared:  0.9593 
+F-statistic: 249.7 on 9 and 86 DF,  p-value: < 2.2e-16
+```
+The `step` function dropped the `C3`, `C4` and `C5` from the model, i.e., $\cos(3\omega t)$, $\cos(4\omega t)$ and $\cos(5\omega t)$ were dropped from the model.
+```R
+AirP_data_test$pred = predict(fit4,newdata = AirP_data_test)
+
+plot(NULL,xlim=c(min(AirP_data$time),max(AirP_data$time))
+     ,ylim=c(min(AirP_data$AirPassengers),max(AirP_data$AirPassengers))
+     ,xlab = '',ylab = 'AirPassengers')
+grid(col='skyblue',lty=1)
+lines(AirP_data_train$time,AirP_data_train$AirPassengers,lwd=2,col='green')
+lines(AirP_data_test$time,AirP_data_test$AirPassengers,col='orange',lwd=2)
+abline(v=1957,col='blue',lty=2,lwd=3)
+
+lines(AirP_data_test$time,AirP_data_test$pred,col='red',lty=1,lwd=2)
+lines(AirP_data_train$time,fit4$fitted.values,col='blue',lty=1,lwd=2)
+
+```
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig6.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 6: Fitted the <em>model 4</em>, (blue) over train data. The red part of the curve is the prediction over test data.</p>
+</figure>
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
