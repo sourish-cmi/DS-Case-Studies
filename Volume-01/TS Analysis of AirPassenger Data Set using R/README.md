@@ -312,7 +312,7 @@ $$
 y(t) = \alpha + \beta_1 t + \beta_2 t^2 + \sum_{i=1}^{5}\gamma_i \sin(i\omega t) + \delta_i \cos(i\omega t) + \varepsilon(t),
 $$
 
-where $\varepsilon(t)\sim N(0,\sigma^2)$. We used `lm` and `step` in `R` to fit the model.
+where $\varepsilon(t)\sim N(0,\sigma^2)$, and $\omega=\frac{2\pi}{f}$, $f=1$. We used `lm` and `step` in `R` to fit the model.
 
 
 ## Referances:
