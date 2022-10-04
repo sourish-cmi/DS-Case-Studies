@@ -386,6 +386,21 @@ lines(AirP_data_train$time,fit4$fitted.values,col='blue',lty=1,lwd=2)
 </p>
 <p align = "center">Figure 6: Fitted the <em>model 4</em>, (blue) over train data. The red part of the curve is the prediction over test data.</p>
 </figure>
+
+We combine the prediction performance of the Model 1-4 in the Table 4.
+
+Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out-sample)
+-------- | ----------------- | -------------------|------------------|------------------
+Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
+Model 2  | 0.8289            | 0.3128             | 29.59            | 67.99
+Model 3  | 0.9217            | 0.5968             | 20.02            | 53.57 
+Model 4  | 0.9632            | 0.7116             | 13.73            | 47.40
+<p align = "left"><b>Table 4</b>: Performance of Model 1-4. Both in-sample and out-sample R-square increases drastically for a Model 4 compare to a Model 1-3. The RMSE decreases for Model 4 compare to Model 1-3.</p>
+
+
+
+
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
