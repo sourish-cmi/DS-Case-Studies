@@ -397,9 +397,15 @@ Model 3  | 0.9217            | 0.5968             | 20.02            | 53.57
 Model 4  | 0.9632            | 0.7116             | 13.73            | 47.40
 <p align = "left"><b>Table 4</b>: Performance of Model 1-4. Both in-sample and out-sample R-square increases drastically for a Model 4 compare to a Model 1-3. The RMSE decreases for Model 4 compare to Model 1-3.</p>
 
+From **Figure 6** and **Table 4**, we see that model 4 improves the model predictability as we add more Fourier transformed features and then run a step-wise feature selection method. However, it looks like the model still misses the highs of summer and the lows of the off-season. It looks like there is exponential behaviour. Hence we decide to consider $\log$-transformation on the target variable `AirPassengers`. We consider the next model as follows.
 
+**Model 5**: We consider the Model 4, but with $\log$-transformation on target variable. That is
 
+$$
+\log\big(y(t)\big) = \alpha + \beta_1 t + \beta_2 t^2 + \sum_{i=1}^{5}\gamma_i \sin(i\omega t) + \delta_i \cos(i\omega t) + \varepsilon(t),
+$$
 
+where $\varepsilon(t)\sim N(0,\sigma^2)$, and $\omega=\frac{2\pi}{f}$, $f=1$. We used `lm` and `step` in `R` to fit the model.
 
 ## Referances:
 
