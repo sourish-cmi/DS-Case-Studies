@@ -407,6 +407,39 @@ $$
 
 where $\varepsilon(t)\sim N(0,\sigma^2)$, and $\omega=\frac{2\pi}{f}$, $f=1$. We used `lm` and `step` in `R` to fit the model.
 
+```R
+fit5=step(lm(log(AirPassengers) ~ time+I(time^2)+S1+C1+S2+C2+S3+C3+S4+C4+S5+C5
+         ,data = AirP_data_train),trace=0)
+summary(fit5)
+
+Call:
+lm(formula = log(AirPassengers) ~ time + S1 + C1 + S2 + C2 + 
+    S3 + C3 + S4 + S5, data = AirP_data_train)
+
+Coefficients:
+              Estimate Std. Error t value Pr(>|t|)    
+(Intercept) -2.577e+02  4.059e+00 -63.484  < 2e-16 ***
+time         1.347e-01  2.078e-03  64.792  < 2e-16 ***
+S1           3.753e-02  6.772e-03   5.542 3.22e-07 ***
+C1          -1.313e-01  6.743e-03 -19.470  < 2e-16 ***
+S2           6.368e-02  6.747e-03   9.438 6.30e-15 ***
+C2           5.045e-02  6.743e-03   7.481 5.85e-11 ***
+S3          -2.554e-02  6.743e-03  -3.787 0.000281 ***
+C3          -9.317e-03  6.743e-03  -1.382 0.170609    
+S4          -3.586e-02  6.741e-03  -5.319 8.15e-07 ***
+S5          -1.995e-02  6.741e-03  -2.960 0.003974 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+Residual standard error: 0.0467 on 86 degrees of freedom
+Multiple R-squared:  0.9824,	Adjusted R-squared:  0.9806 
+F-statistic: 534.7 on 9 and 86 DF,  p-value: < 2.2e-16
+
+
+AirP_data_test$pred = exp(predict(fit5,newdata = AirP_data_test))
+
+```
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
