@@ -454,6 +454,8 @@ Model 2  | 0.8289            | 0.3128             | 29.59            | 67.99
 Model 3  | 0.9217            | 0.5968             | 20.02            | 53.57 
 Model 4  | 0.9632            | 0.7116             | 13.73            | 47.40
 Model 5  | 0.9506            | 0.8600             |  9.12            | 59.25
+<p align = "left"><b>Table 5</b>: Performance of Model 1-5. Based on out-sample R-Square Model 5 is best model. However, based on out-sample RMSE Model 4 is best. 
+</p>
 
 ## Referances:
 
