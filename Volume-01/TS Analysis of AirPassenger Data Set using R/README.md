@@ -439,6 +439,12 @@ F-statistic: 534.7 on 9 and 86 DF,  p-value: < 2.2e-16
 AirP_data_test$pred = exp(predict(fit5,newdata = AirP_data_test))
 
 ```
+<figure>
+<p align = "center">
+<img src="./images/Rplot_Fig7.jpeg" alt="drawing" width="600" height="450"/>
+</p>
+<p align = "center">Figure 7: Fitted the <em>model 5</em>, (blue) over train data. The red part of the curve is the prediction over test data.</p>
+</figure>
 
 ## Referances:
 
