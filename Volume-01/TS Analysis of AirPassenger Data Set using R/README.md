@@ -1,4 +1,4 @@
-# Time Series Analysis of `AirPassengers` Dataset using `R`
+# Applications of Linear Regression and Feature Engineering in Time Series Data
 
 ## By Sourish Das
 #### Chennai Mathematical Institute
