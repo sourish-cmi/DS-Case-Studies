@@ -446,6 +446,15 @@ AirP_data_test$pred = exp(predict(fit5,newdata = AirP_data_test))
 <p align = "center">Figure 7: Fitted the <em>model 5</em>, (blue) over train data. The red part of the curve is the prediction over test data.</p>
 </figure>
 
+We combine the prediction performance of the Model 1-5 in the Table 5.
+Models   | R-Sqr (In-sample) | R-Sqr (Out-sample) | RMSE (In-sample) | RMSE (Out-sample)
+-------- | ----------------- | -------------------|------------------|------------------
+Model 1  | 0.8178            | 0.3103             | 30.54            | 72.69
+Model 2  | 0.8289            | 0.3128             | 29.59            | 67.99
+Model 3  | 0.9217            | 0.5968             | 20.02            | 53.57 
+Model 4  | 0.9632            | 0.7116             | 13.73            | 47.40
+Model 5  | 0.9506            | 0.8600             |  9.12            | 59.25
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
