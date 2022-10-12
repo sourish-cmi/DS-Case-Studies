@@ -457,6 +457,10 @@ Model 5  | 0.9506            | 0.8600             |  9.12            | 59.25
 <p align = "left"><b>Table 5</b>: Performance of Model 1-5. Based on out-sample R-Square Model 5 is best model. However, based on out-sample RMSE Model 4 is best. 
 </p>
 
+## Discussion
+
+This article shows that we can do a lot of good modelling by using simple *linear regression* and *feature engineering*. However, we do know there is autocorrelation in the data, and we are not taking care of these autocorrelations in this simple model. This article aims to demonstrate that we can develop simple, explainable time series models with basic concepts of linear regression, Fourier transforms and feature engineering. This article is incomplete because we have not implemented *ARIMA* models and compared the performance.
+
 ## Referances:
 
 [1] Box, G. E. P., Jenkins, G. M. and Reinsel, G. C. (1976) Time Series Analysis, Forecasting and Control. Third Edition. Holden-Day. Series G.
