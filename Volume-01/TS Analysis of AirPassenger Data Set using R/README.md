@@ -10,7 +10,7 @@
 </p>
 
 #### Summary
-This article shows that we can do much better modeling using simple *linear regression* and *feature engineering*. However, we know there is autocorrelation in the data and we do not care about this autocorrelation in this simple model. The goal of this article is to show that we can develop simple, interpretable time series models with the basic concepts of linear regression, Fourier transform, and feature engineering. This article is incomplete because we did not apply *ARIMA* models and compare performance.
+This article shows that we can do much better modeling using simple *linear regression* and *feature engineering*. However, we know there is autocorrelation in the data and we do not addressed about this autocorrelation in this article. The goal of this article is to show that we can develop simple, interpretable time series models with the basic concepts of linear regression, Fourier transform, and feature engineering. This article is incomplete because we did not apply *ARIMA* models and compare performance.
 
 
 ### Introduction
