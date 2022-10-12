@@ -9,6 +9,10 @@
 <img src="./images/air-passengers.jpeg" alt="drawing" width="800" height="275"/>
 </p>
 
+#### Summary
+This article shows that we can do much better modeling using simple *linear regression* and *feature engineering*. However, we know there is autocorrelation in the data and we do not care about this autocorrelation in this simple model. The goal of this article is to show that we can develop simple, interpretable time series models with the basic concepts of linear regression, Fourier transform, and feature engineering. This article is incomplete because we did not apply *ARIMA* models and compare performance.
+
+
 ### Introduction
 
 In this case study, we will present the time-series analysis of the `AirPassengers` Dataset using `R`. The data is classic Box & Jenkins (1976) airline data. The dataset consists of univariate time-series data about the number of passengers flying per month from 1949 to 1960 in the US. This time-series dataset addresses the issue of trend, seasonality, and exponential growth. Here we will present how we can model such time series data step-by-step. Note that the dataset is available in the `datasets` package of `R`.
