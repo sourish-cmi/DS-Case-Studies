@@ -1,4 +1,4 @@
-# Time Series Analysis of `AirPassengers` Dataset using `R`
+# Bayesian CAPM Analysis with `Julia` and `CRRao`
 
-### By Sourish Das
+### By Chirag Anand, Sourish Das, Ajay Shah
 
